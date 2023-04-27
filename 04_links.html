@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>List, Anchor, Image</title>
+    </head>
+    <body>
+        <!--리스트요소-->
+        <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+        <ol>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ol>
+        <dl>
+            <dt>aaa</dt>
+            <dd>이것은 Definition Data입니다.</dd>
+            <dt>bbb</dt>
+            <dd>이것은 Definition Data입니다.</dd>
+        </dl>
+        <!--하이퍼링크 anchor요소-->
+        <a>NAVER</a>
+        <br>
+        <a href="https://www.naver.com">NAVER</a>
+        <br>
+        <a href="./03_starcoffee.html" target="_blank">상대주소:다른 html 문서</a>
+        <br>
+        <a href="#help">도움말 위치로 이동</a>
+        <br>
+        <hr>
+        <h4 id="help">도움말</h4>
+        <!--br태그로 줄바꿈 하는 대신에 단락요소안에 anchor요소를 배치하는 방식이 선호됨-->
+        <!--중첩 요소: 가장 많이 쓰임-->
+        <p><a href="">aaa</a></p>
+        <p><a href="">bbb</a></p>
+        <ul>
+            <li><a href="">111</a></li>
+            <li><a href="">222</a></li>
+            <li><a href="">333</a></li>
+        </ul>
+        <!--href에 이메일 주소를 하이퍼링크-->
+        <p><a href="mailto:wiber4001@gmail.com">wiber4001@gmail.com</a></p>
+
+        <!--이미지보기-->
+        <p><a href="https://pixabay.com/ko/photos/%ea%b3%a4%ec%b6%a9-%eb%82%98%eb%b9%84-%ea%b3%a4%ec%b6%a9%ed%95%99-%eb%82%a0%ea%b0%9c-%ec%a2%85-7942861/">이미지보기</a></p>
+        <p><a href="./seolak.jpg" target="_blank">내 폴더의 이미지 보기</a></p>
+        <!--다운로드링크: 브라우저가 보여줄 수 없는 파일 형식을 다운로드-->
+        <p><a href="http://wny2023.dothome.co.kr/aaa.zip" target="_blank">압축문서 다운로드</a></p>
+        <!--이미지요소:empty element-->
+        <img src="./seolak.jpg" alt="설악산">
+        <br>
+        <img src="./seolak.jpg" alt="설악산" width="200" height="80">
+        <br>
+        <img src="http://wny2023.dothome.co.kr/newyork.jpg" alt="뉴욕" width="20%"><br>
+        <img src="" alt="이미지가 없을때 보여질 글씨">
+
+        <!-- img+a -->
+        <a href="./seolak.jpg" target="_self"><img src="./seolak.jpg" alt="설악" width="200"></a>
+
+        <!-- p.43 예제-->
+        
+        <!-- p.45 예제-->
+
+    </body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Table element</title>
+    </head>
+    <body>
+
+        <table border="1">
+            <tr>
+                <th>no</th>
+                <th>name</th>
+                <th>message</th>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>same</td>
+                <td>hello world</td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>robin</td>
+                <td>nice to meet you</td>
+                <td>2023-04-27</td>
+            </tr>
+        </table>
+        <hr>
+        <!--셀병합-->
+        <table border="1">
+            <!--한줄만 있으면 비교할 셀이 없기에 span의 영향이 안느껴짐-->
+            <tr>
+                <td rowspan="2">111</td>
+                <td colspan="3">222</td>
+                <td>333</td>
+            </tr>
+            <tr>
+                <td>444</td>
+                <td>555</td>
+                <td>666666</td>
+            </tr>
+            <!--테이블의 제목-->
+            <caption>테이블 제목</caption>
+        </table>
+
+        <!-- 테이블 셀영역(<td></td>)안에 다른요소 (element)넣기-->
+        <table border="1" width="100%">
+            <tr>
+                <td width="30%">
+                    <a href="">NAVER</a>
+
+                </td>
+                <td>
+                    <ul>
+                        <li>aaa</li>
+                        <li>bbb</li>
+                        <li>ccc</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        테이블안에는 어떤요소든지 배치가능
+                    </p>
+                </td>
+                <td>
+                    <img src="./seolak.jpg" alt="설악" width="70%">
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
