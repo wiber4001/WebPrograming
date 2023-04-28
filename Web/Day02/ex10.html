@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>
+        카드정보입력
+    </title>    
+    </head>
+    <body>
+        <form action="./postTest2.php" method="post">
+            <fieldset>
+                <legend>카드 정보 입력</legend>
+                <ol>
+                    <li>
+                        <fieldset>
+                        <legend>카드 타입</legend>
+                        <label>1. <input type="radio" name="rg" value="VISA" checked>VISA</label><br>
+                        <label>2. <input type="radio" name="rg" value="AmEx">AmEx</label><br>
+                        <label>3. <input type="radio" name="rg" value="MasterCard">MasterCard</label><br>
+                        </fieldset>
+                    </li>
+                    <li>
+                        <label>카드번호: <input type="number" name="cardnum" min="0000" max="9999" value="1111" step="1111"></label>
+                    </li>
+                    <li>
+                        <label>CRC번호: <input type="number" name="CRCnum" min="000" max="999" value="111" step="111"></label>
+                    </li>
+                    <li>
+                        <label>카드 소유자 이름: <input type="text" name="id" placeholder="카드 상의 이름"></label>
+                    </li>
+                </ol>
+            </fieldset>
+            <div style="border: 1px solid black; padding: 10px;">
+                <input type="submit" value="구매">
+            </div>
+        </form>
+    </body>
+</html>
