@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>anchor, list, table style</title>
+        <style>
+            a:link{color:blue}
+            a:visited{color: blueviolet}
+            /* hover기능은 반드시 visited다음에 설정, 필수요소가아니므로 visited자체를 쓰지않는것은 가능 */
+            a:hover{color: aqua; font-size: 2em;}
+            a:active{color: azure;}
+            #aa:hover{background-color: burlywood;}
+            img{background-color: yellowgreen; border: 2px solid tomato;}
+            img:hover{background-color: cadetblue;width: 50%;}
+        </style>
+    </head>
+    <body>
+        <a href="http://google.co.kr">sitelink</a>
+        <!-- 다른 요소에도 :  hover효과 가능함 -->
+        <p id="aa">Hello</p>
+        <img src="./image/image.png" alt="img">
+        <hr>
+
+        <!-- 리스트스타일 -->
+        <ul class="a">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+        <style>
+            ul.a{list-style-type: circle;}
+            ul.a{list-style-type: disc;}
+            ul.a{list-style-type: square;list-style-position: inside ;}
+            ul.a{list-style-image: url("./image/border.png");}
+        </style>
+        <ol class="b">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ol>
+        <style>
+            ol.b{list-style: lower-alpha;}
+            ol.b{list-style: lower-latin;}
+            ol.b{list-style: lower-greek;}
+            ol.b{list-style: decimal-leading-zero;}
+        </style>
+    </body>
+</html>

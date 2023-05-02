@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Table Style</title>
+        <style>
+            table{border: 2px solid; border-collapse: collapse; text-align: center;}
+            th, td{border: 1px solid; padding: 10px 5px;}
+            th{background-color: burlywood; color: black}
+            tr:nth-child(2n+1){background-color: cornflowerblue;}
+            td:first-child{width: 40%;}
+            th{border-bottom:double blue ;}
+
+            /* 직접 요소를 만들지 않았지만 테이블에 숨어있는 요소가 존재함 */
+            /* table을 만들면 table header와 tbody, table footer가 생성, 하지만 header와 footer는 기본은 아님 */
+            /* table 밑에는 바로 tr이 아니라 tbody가 먼저임 */
+            /* 즉 table의 1st자식은 tbody */
+            /* tr은 table의 자식이 아니라 자손임 */
+            table>:nth-child(1){border:10px solid blue}
+            table>tr{color: yellowgreen;} /* 아무것도 선택되지 않음 */
+            table tr{color: teal;}
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>이름</th>
+                <th>이메일</th>
+            </tr>
+            <tr>
+                <td>김철수</td>
+                <td>kimChul@google.com</td>
+            </tr>
+            <tr>
+                <td>이영희</td>
+                <td>mie@google.com</td>
+            </tr>
+            <tr>
+                <td>박명수</td>
+                <td>myoungsu@google.com</td>
+            </tr>
+            <tr>
+                <td>누구냐</td>
+                <td>bababa@google.com</td>
+            </tr>
+        </table>
+    </body>
+</html>

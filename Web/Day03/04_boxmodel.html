@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>박스모델(요소크기 및 배경)</title>
+        <style>
+            p.aa{
+                /* 경계선 */
+                border-style: solid;
+                border-top-style: dotted;
+                border-width: thin;
+                border-width: 30px;
+                border-bottom-width: 8px;
+                border-color: red;
+                border-right-color: aquamarine;
+                border-radius: 20px;
+                border-bottom-left-radius: 0px;
+                border-top-right-radius: 0px;
+
+                /* 경계선을 이미지가 보일 정도의 두께로 설정 */
+                border: 30px solid transparent;
+
+                /* 경계선 이미지 */
+                border-image-source: url("./image/border.png") ;
+                border-image-slice: 30 30; /*높이 너비 순서임*/
+                /* repeat모드: 기본 strech */
+                border-image-repeat: round; 
+
+                /* (블럭) 요소 크기 */
+                width: 50%;
+                height: 300px;
+                /* height: 100%; */
+                /* body와 html의 자손이므로 100%을 실질적용하려면 html,body 모두가 100%로 변경(기본wrap) 되어야 함 */
+
+                /* 요소의 콘텐츠가 아니라 요소자체를 가운데 정렬 */
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            /* 인라인요소 - 너비지정 불가 */
+            a{background-color: violet; width: 200px;}
+            em{background-color: aqua; width: 100%;}
+
+            /* 인라인-블럭 요소 - 너비지정 가능 */
+            img{width: 300px; border: 1px solid black;}
+            input{background-color: burlywood; width: 100%;}
+
+            /* html, body{height: 100%;} */
+        </style>
+    </head>
+    <body>
+        <!-- 경계선 border/요소크기/가운데정렬 -->
+        <p class="aa">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dignissimos itaque mollitia ratione nisi veritatis magnam porro, fugiat perferendis dolorum, ex quos numquam odit consectetur tempora recusandae officiis doloremque qui?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus dolores maxime dicta est exercitationem. Debitis quas minima minus. Autem iure numquam quasi voluptatem, eum voluptas deleniti vero ipsum ut fugit.
+        </p>
+
+        <!-- 인라인 요소의 크기 설정 및  -->
+        <!-- 인라인 요소: 기본 너비조정 불가능 -->
+        <a href="">anchor</a>
+        <em>Hello</em>
+        <!-- 인라인 (블럭) 요소: 너비조정 가능 -->
+        <img src="./image/image.png" alt="image">
+        <input type="text">
+
+        <!-- 마진 -->
+        <div id="m">
+            <p id="p1">p1</p>
+            <p id="p2">p2</p>
+            <p id="p3">p3</p>
+            <p id="p4">p4</p>
+        </div>
+        <style>
+            /* margin은 겹친다->심지어 minus margin도 있음- 음수 마진을 주면 레이아웃이 겹침 */
+            #p1{background-color: tomato; margin: 0px; height:50px; margin-bottom: 10px;}
+            #p2{background-color: yellowgreen; margin: 0px; height:50px; margin-top: 10px; margin-bottom: 10px;}
+            #p3{background-color: tomato; margin: 0px; height:50px;}
+            #p4{background-color: yellowgreen; margin: 0px; height:50px; margin-top: -20px;width: 50%;}
+        </style>
+        <!-- 배경 이미지/ 색상 -->
+        <p class="back">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque commodi aut suscipit quas doloremque corrupti consequuntur cupiditate, explicabo minima dolorum quae officia nobis fugit cumque assumenda aspernatur! Voluptatem, fugit dicta.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem dolorem provident deserunt iste neque sed nulla non, ut expedita, eligendi autem quam fuga optio, adipisci alias quaerat. Asperiores, perferendis tempora!
+        </p>
+        <style>
+            p.back{
+                background-color: gold;
+                background-image: url("./image/image.png");
+                background-size: 200px 100px;
+                background-repeat: repeat-x;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-position: right bottom;
+            }
+        </style>
+
+        <!-- 배경 이미지가 붙어있는 위치 설정 -->
+        <p id="attach">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum sit, dolorem commodi soluta quisquam totam, cupiditate porro quaerat modi eos eligendi, et eius suscipit ipsum? Quam, eaque commodi. Facere, pariatur.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores ut tempora accusantium eligendi aut ipsum optio, pariatur magnam excepturi ratione nisi, ea autem culpa odit accusamus repellendus consectetur. Veritatis, explicabo.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati nostrum alias totam ducimus quaerat! Distinctio excepturi similique repellendus magnam perspiciatis sit! Sapiente reprehenderit eius veritatis qui voluptatem praesentium, iure veniam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, dolorem deleniti. Cum, atque, amet, repudiandae dicta autem repellat sapiente consequatur odio nostrum dolorum nesciunt necessitatibus placeat. Reiciendis eos vel eveniet?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem alias error voluptatibus cum doloremque accusantium repellendus modi animi maiores nesciunt, eius possimus asperiores perferendis id? Molestias aspernatur possimus quos nulla.
+        </p>
+        <style>
+            #attach{
+                width: 60%;
+                height: 300px;
+                border: 2px solid green;
+                overflow: scroll;
+                margin-left: auto;
+                margin-right: auto;
+                background-image: url("./image/image.png");
+                background-size: 200px 100px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-attachment: scroll; /* 요소가 스크롤 될때 배경도 같이 스크롤- 요소에 붙어있는 배경느낌*/
+                background-attachment: local;  /*콘텐츠에 배경이 붙은 느낌*/
+                background-attachment: fixed;  /*브라우저에 배경이미지가 붙은 느낌. 단, 요소안에서만 보여짐*/
+            }
+        </style>
+    </body>
+</html>
