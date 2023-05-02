@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Font & Text</title>
+        <style>
+            /* 폰트 글꼴 지정 */
+            p{font-family: "Blippo Blk BT", sans-serif;} /* 없을땐 서체-sans-serif 만 적용*/
+            p{font-family: "HY크리스탈M", serif;}
+            p{font-family: monospace;}
+            /* 모든 컴퓨터에서 동일한 폰트로 보여지려면 */
+            /* 웹폰트 사용: 개발자의 커스텀 폰트 */
+            /* css에서 경로는 무조건 url()함수에 써준다 */
+            @font-face {
+                font-family: "MyFont";
+                src: url("./font/dalseo.ttf");
+            }
+
+            p{font-family: "MyFont", sans-serif;}
+            /* 폰트크기 */
+            p{font-size: small;} /*키워드 적용*/
+            p{font-size: 16px;} /*수치 단위px*/
+            p{font-size: 1.5em;} /*비율을 이용한 사이즈 1.5배*/
+
+            /*bold, normal글꼴*/
+            p{font-weight: 500;} /* 100~900 100단위로 정해져 있음*/
+
+            /* italic, normal */
+            p{font-style: italic;}
+
+            /* 폰트속성 4개를 한번에 축약형으로 설정 */
+            /* 순서[weight/style] size family */
+            p{font: bold italic 200%  "MyFont", "휴먼옛체", serif;}
+            /* 텍스트에 관련된 속성들 */
+            /* 텍스트 정렬 */
+            p{text-align: center;}
+            p{text-align: right;}
+            p{text-align: justify;}
+            /* 텍스트 변환[대소문자 변환] */
+            p{text-transform: uppercase;}
+            p{text-transform: lowercase;}
+            p{text-transform: capitalize;}
+            /* 텍스트선긋기 */
+            p{text-decoration: overline;}
+            p{text-decoration: underline;}
+            p{text-decoration: line-through;}
+            p{text-decoration: none;}
+            /* 텍스트그림자 */
+            p{text-shadow: 5px 3px 3px bisque;}
+            /* 워드 랩 */
+            p.aaa{
+                border: 1px solid blue;
+                width: 5em;
+                word-wrap: break-word;
+            }
+            #bbb{
+                column-count: 2;
+                column-gap: 80px;
+                column-rule: 10px dotted saddlebrown;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Hello World</p>
+        <p>한글은 어떠한가</p>
+        <p class="aaa">
+            한글은 전혀 문제없이 자동 워드 랩 됨.<br>
+            aaaaaaaaaaaaaaaaaa Aaaaaaaaaaaaaaaaaaaaa
+            <!-- 영어는 띄어쓰기 별로 줄바꿈이 됨 -->
+        </p>
+        <!-- 다중 컬럼 -->
+        <p id="bbb">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolores ab veniam facilis eum, eveniet corporis aliquid incidunt dicta ut, porro rem delectus maxime enim cum iusto, corrupti iure repellendus.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam, iste quaerat. Neque repellat voluptatum quaerat, dolore sint est tempore molestias rerum nesciunt impedit, beatae ipsam error repudiandae veritatis quae sed.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus incidunt vero culpa illum enim rem vel modi eligendi labore veniam alias voluptates quod eius inventore molestiae, veritatis rerum, blanditiis doloribus?
+
+        </p>
+        <!-- 텍스트 정렬할때 인라인 요소와 블럭요소의 차이 -->
+        <!-- text-align은 블럭요소에서만 의미가 있음 -->
+        <div style="text-align: center; background-color: bisque ; height: 5em;">Hello</div>
+        <div style="text-align: center; background-color: chocolate ; line-height: 5em;">Hello</div>
+        <span style="text-align: center; background-color: aqua; line-height: 5em;">Hello</span>
+    </body>
+</html>
