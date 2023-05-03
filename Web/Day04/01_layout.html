@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Layout css</title>
+        <style>
+            /* display 속성 연습 */
+            #aa{display: inline; width: 300px;}
+            #aa{display: inline-block; width: 300px;}
+
+            /* 인라인요소를 블럭요소로 */
+            img.bb{display: block;}
+
+            /* display none */
+            #cc{display: none;}
+        </style>
+    </head>
+    <body>
+        <!-- display 속성 -->
+        <p id="aa">Hello world</p>
+        <a href="">Google</a>
+        <strong>Good morning</strong>
+        <img src="./image/pome.png" alt="pome" class="bb">
+        <hr>
+
+        <!-- display:none -->
+        <ul>
+            <li>aaa</li>
+            <li id="cc">bbb</li>
+            <li>ccc</li>
+        </ul>
+        <hr>
+        <!-- 블럭요소와 인라인요소를 같이 사용할때 고려할 것들 -->
+        <!-- 블럭요소안에 인라인 요소, 다른 블럭요소 모두 넣을 수 있음 -->
+        <div style="background-color: tomato; border: solid; padding: 5px;">Nice <strong>aaa</strong> World</div>
+        <div style="background-color: yellowgreen; border: solid; padding: 5px;">Nice <p>aaa</p> World</div>
+
+        <!-- 블럭요소 안에 같은 블럭요소가 있다면...?! -->
+        <p style="background-color: yellow; border: solid; padding: 5px;">Nice <p>aaa</p> World</p>
+        <!-- p요소는 종료태그 없어도 에러가 나지않고 실행됨, /p 즉 p의 종료태그는 단독으로 있으면 무시된다 -->
+        <!-- div는 중첩가능 -->
+
+        <!-- 인라인 요소안에 블럭요소를 넣으면? 원래는 안됨 -->
+        <span style="background-color: lightblue; border: solid; padding: 5px;">Nice <p>aaa</p> world</span>
+
+        <hr>
+        <!-- position 속성 -->
+        <div class="aaa">
+            <p id="one">block #1</p>
+            <p id="two">block #2</p>
+            <p id="three">block #3</p>
+
+        </div>
+        <style>
+            #one{
+                background-color: aquamarine;
+                width: 200px;
+                height: 50px;
+            }
+            #two{
+                background-color: greenyellow;
+                width: 200px;
+                height: 50px;
+
+                position: static; /* 원래 놓여질 위치에 배치됨(default)*/
+                position: relative; /*원래 놓여질 위치에서 위치속성 변경-> 다른요소와 겹칠수 있음 */
+                position: absolute; /*문서의 좌측 상단을 기준으로 위치를 설정(원래 배치될 위치에서 벗어남)*/
+                /* absolute일때 부모의 영역을 기준으로 배치하고 싶다면...부모요소의 position 속성이 static이 아니면 됨 */
+                position:fixed; /* 브라우저 창의 좌상단을 기준으로 함 */
+
+                /* 위치좌표 설정속성[position:static일때는 무시됨] */
+                left: 50px;
+                top: 30px;
+                /* margin-top:30px;은 다른 요소에 영향을 줌 */
+            }
+            #three{
+                background-color: green;
+                width: 200px;
+                height: 50px;
+            }
+
+            /* 블럭들의 부모요소 */
+            div.aaa{
+                background-color: tan;
+                position: relative;
+            }
+
+        </style>
+
+    </body>
+</html>

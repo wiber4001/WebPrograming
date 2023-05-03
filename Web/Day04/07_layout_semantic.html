@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Semantic Blog</title>
+        <style>
+            body{
+                margin: 0px;
+            }
+            header{
+                background-color: skyblue;
+                text-align: center;
+            }
+            nav{
+                background-color: aqua;
+                padding: 15px ;
+                display: table-cell;
+            }
+            section{
+                background-color: azure;
+                padding: 15px;
+                display: table-cell;
+            
+            }
+            footer{
+                color: white;
+                background-color: cadetblue;
+                padding: 10px;
+            }
+            header h1{
+                margin: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- body도 기본 마진이 있음 -->
+        <div id="wrapper">
+            <!-- 아무런 기능적인 효과는 없다-> Css로 잡아줘야함 -->
+            <header>
+                <h1>My Blog Page</h1>
+                <!-- h1은 기본 마진이 있음 -->
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="">aaa</a></li>
+                    <li><a href="">bbb</a></li>
+                    <li><a href="">ccc</a></li>
+                </ul>
+                <figure>
+                    <img src="./image/lion.png" alt="lion" width="85">
+                    <figcaption>사자</figcaption>
+                </figure>
+            </nav>
+            <section>
+                <article>
+                <h1>aaaa</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat nostrum dicta culpa unde, quas libero perspiciatis veniam et quidem, suscipit atque, asperiores sint earum eveniet tenetur quod aspernatur. Culpa, facilis.</p>
+                </article>
+                <article>
+                <h1>bbbb</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quam consequatur quas voluptatibus praesentium aliquid tempora, repellendus expedita, saepe eveniet minima unde dolorum ea quae commodi optio? Quisquam, deleniti magni.</p>
+                </article>
+            </section>
+            <footer> copyright @wny2023 </footer>
+        </div>
+        
+    </body>
+</html>
