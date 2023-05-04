@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Grid CSS style</title>
+    </head>
+    <body>
+       <div class="container">
+        <div id="item01">01</div>
+        <div id="item02">02</div>
+        <div id="item03">03</div>
+        <div id="item04">04</div>
+        <div id="item05">05</div>
+        <div id="item06">06</div>
+        <div id="item07">07</div>
+       </div> 
+       <style>
+        *{border: 2px dotted blueviolet;}
+        .container{
+            /* 자식요소의 배치를 격자로 배치하기 용이한 스타일 */
+            display: grid;
+
+            /* 자식요소들을 한줄에 3개씩 배치 */
+            grid-template-columns: 100px 100px 150px ;
+            /* 자식요소들의너비를 균등하게 */
+            grid-template-columns: auto auto auto;
+            /* 높이 지정도 가능 */
+            grid-template-rows: 150px 300px ; /*첫번째줄 두번째줄*/
+
+            /* 각 셀들의 사이 간격지정 */
+            /* rem:최상위 글자 사이즈 간격 */
+            column-gap: 1rem;
+            row-gap: .5rem;
+
+            gap: 0.7rem 1rem; /*축약: row-gap, column-gap*/
+        }
+        .container div{
+            background-color: cornflowerblue;
+            color: aliceblue;
+            margin: 4px;
+            text-align: center;
+            padding: 8px;
+        }
+
+        /* 개별 셀들의 위치 및 병합 */
+        #item01{
+            grid-column-start: 1;
+            grid-column-end: 3; /* 3번 전까지 - 1번, 2번 */
+
+        }
+        #item03{
+            grid-column-start: 2;
+            grid-column-end: 4 ;
+            /* 2, 3번 만 */
+        }
+        #item05{
+            grid-column: 3 / span 2;
+        }
+        #item06{
+            grid-row-start: 3;
+            grid-row-end: 5;
+        }
+
+       </style>
+    </body>
+</html>
