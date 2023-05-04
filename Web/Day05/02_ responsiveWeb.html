@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>반응형 웹 디자인</title>
+        <style>
+            *{padding: 0px; margin: 0px;} 
+            #wrapper{
+                width: 90%;
+                border: 4px solid navy;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #wrapper div{
+                display: inline-block;
+                height: 100px;
+                width: 100% ;
+            }
+            /* 각 영역들의 배경색 지정 */
+            #wrapper div:first-child{
+                background-color: beige;
+            }
+            #wrapper div:nth-child(2){
+                background-color: burlywood;
+            }
+            #wrapper div:nth-child(3){
+                background-color: bisque;
+            }
+            #wrapper div:nth-child(4){
+                background-color: yellow;
+            }
+            #wrapper div:last-child{
+                background-color: brown;
+            }
+
+            /* 미디어쿼리 적용 */
+            @media all and (min-width:320px){
+                #wrapper div{width: 100%;}
+            }
+            @media all and (min-width:600px){
+                #wrapper div{width: 50%;}
+                #wrapper div:last-child{width: 100%;}
+            }
+            @media all and (min-width:800px){
+                #wrapper div{width: 20%;}
+                #wrapper div:last-child{width: 20%;}
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <!-- enter키를 눌러서 요소를 입력하면 ' '한칸이 들어간다 -->
+            <!-- <div>aa</div>
+            <div>bb</div>
+            <div>cc</div>
+            <div>dd</div>
+            <div>ee</div> -->
+            <div>aa</div><div>bb</div><div>cc</div><div>dd</div><div>ee</div>
+        </div>
+
+    </body>
+</html>
