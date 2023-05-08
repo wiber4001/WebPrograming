@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Test</title>
+
+        <!-- 브라우저가 interprete(통역)해서 실행하는 프로그래밍 코드 작성 -->
+        <!-- 내부 스크립트 -스크립트는 길기때문에 외부에 쓰는 것을 권장 -->
+        <script>
+            // 이 script영역 안에서는 JavaScript의 문법 체계를 따름
+
+            // HTML에서 body안에 했던 모든 작업을 스크립트로 처리가능
+            // 화면에 출력: 내장객체 document를 이용
+            document.write("Hello World!");
+
+            // 자동 줄바꿈 되지 않음
+            // 한 문자와 문자열을 구별하지 않음 ""과  ''를 구별하지 않음
+            document.write('자동 줄바꿈 하려면 <br>태그 이용');
+
+            // HTML의 태그문을 직접 작성할 수도 있음.
+            document.write('<hr>');
+            document.write('<a href="http://www.google.co.kr">Google</a>'+'<br>')
+            // 단 '' 내부에 또다른 '' 작성 불가, "" 내부에도 "" 중복불가 서로 교차사용만 가능
+
+            // JS는 프로그래밍 언어이기에 변수, 객체, 연산자, 제어문 등이 가능함
+            var a=10;
+            document.write(a+" <br>");
+
+            var b=new Date();
+            document.write(b+" <br>");
+
+            // 이벤트에 의해 자동 발동하는 함수 정의
+            function aaa(){
+                // alert('clicked button')
+
+                // body영역이 모두 그려진 후에 document.write()를 하면 화면이 새로 써짐-기존화면 다 날아감
+                // 돌이킬 방법은 새로고침뿐
+                document.write('clicked button');
+            }
+
+            // 문자의 끝을 나타내는 ; 은 생략해도 됨 - 버전업
+            // head영역은 body보다 먼저나옴
+            document.write('<hr>')
+            document.write('안녕하세요')
+
+        </script>
+        <!-- 외부 스크립트 -->
+        <script src="./01_ex.js"></script>
+
+    </head>
+    <body>
+        <!-- JS와 함께 HTML 요소가 존재해도 됨 -->
+        <h2>Hello JavaScript</h2>
+        <!-- JS의 존재 이유는 요소의 이벤트 처리 -->
+        <!-- inline script -->
+        <button onclick="aaa()"> 버튼 </button>
+    </body>
+</html>
