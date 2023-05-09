@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JS custom object</title>
+        <script>
+            //자바에서 객체의 2가지 종류
+            //1. 내장객체:document, window, navigation...(new도 되어있음)
+            //           Date(), String(), Number(), Array(), Math()...(new를 해서 씀)
+            //2. 사용자 정의 객체
+
+            //객체를 만드는 방법 2가지
+            //1. 리터럴 객체[객체를 생성하면서 설계하는 방식]
+            var person={
+                //멤버변수-속성 property
+                name:"sam",
+                age:20,
+                //멤버함수-메소드 method
+                show: function() {
+                    // document.write(name+" , ");
+                    // document.write(age+"<br>");
+                    //this키워드가 없으면 멤버변수를 인식하지 못함->전역변수로 인식함
+                    document.write(this.name+" , ");
+                    document.write(this.age+"<br>");
+                }            
+            };
+            //객체 멤버변수(속성) 출력
+            document.write("name: "+person.name+" , ");
+            document.write("age: "+person.age+"<br>");
+
+            //객체 멤버함수(메소드)호출
+            person.show();
+
+            //새로운 리터럴 객체를 만들려면 다시 설계해야
+            var person2={
+                name:"robin",
+                age:25,
+                show:function(){
+                    document.write("show: "+this.name+" , "+this.age+"<br>");
+                },
+                add:function(a,b){
+                    var c=a+b;
+                    document.write("add: "+c+"<Br>");
+                }
+            };
+
+            person2.show();
+            person2.show(10); //파라미터없는데 전달하면? 상관없음->동작에 문제없음
+            person2.add(2,5);
+
+            // person.add(10,20);//error
+            // document.write("asdfaesfasein");//에러가 윗줄에나면 위에서 멈추므로 여기가 실행이안됨
+
+            //JS는 유연한 언어여서 객체를 생성한 후에 객체의 멤버를 추가할 수 있음
+            person.tel="01012454831"; //새롭게 property가 추가됨
+            document.write("name: "+person.name+" , ");
+            document.write("age: "+person.age+" , ");
+            document.write("tel: "+person.tel+" <br> ");
+
+            person.show();//멤버값 출력기능 호출
+            //tel까지 포함하여 출력해주는 기능메소드 추가
+            person.out=function(){
+                document.write("out: "+this.name+" , "+this.age+" , "+this.tel+" <br> "); 
+                //여기의 this는 person임!!=>잘 안보이니 주의
+            }
+            person.out();
+            //혹시 대입한 적이 없는 멤버변수를 출력하면???
+            document.write(person.address); //속성은 추가하나, 값은 undefined로 됨->권장하지 않음
+            document.write("<br><hr>");
+            //리터럴 객체는 여러개의 속성, 메소드가 있을때..
+            //객체를 생성할때 마다 관련 설계코드를 모두 다시 작성해야함 ->번거로움...
+            //객체가 많이 사용될때 특히 번거로움-> 미리 객체의 설계도를 만들고 필요할때마다 객체로 생성이 선호됨
+
+
+            //2. 생성자 함수를 이용한 객체생성 [new 키워드로 객체생성]
+            
+            //학생 객체 설계: 이름, 나이, 전공
+            function Student(){
+                //멤버변수 - property, 무조건 this써줘야만 함, 안쓰면 전역변수되어버림
+                this.name="aaa";
+                this.age=23;
+                this.major="android";
+                //멤버함수 - method
+                this.show=function(){
+                    document.write("name: "+this.name+" , "+this.age+" , "+this.major+"<br>");
+                }
+                this.setMember=function(name,age,major){
+                    this.name=name;
+                    this.age=age;
+                    this.major;
+                }
+            }
+
+            //위 설계도(생성자 함수)를 이용하여 객체를 생성
+            var stu=new Student();
+            stu.show();
+
+            //또 다른 학생 객체가 필요할때.. 또 설계할 필요없이 new만 
+            var stu2=new Student();
+            stu2.name="pour"
+            stu2.age=33
+            stu2.major="ios"
+            stu2.show();
+
+            //이런식으로 멤버값을 일일이 대입하려니..여러줄 코딩->번거로움
+            var stu3=new Student();
+            stu3.setMember("ccc",25,"web"); // 멤버값을 입력해주는 기능메소드가 있다면
+            stu3.show();
+
+            //이런식이면 객체 생성 후에 항상 멤버값을 대입하는 기능 메소드를 호출하는 코드가 추가로 요구됨
+            //그래서 객체를 new()-생성-하면서 멤버값들을 전달할 수 있다면->더 간결해짐
+            //생성자 함수에 파라미터를 전달
+
+            function Stu(name,age,major){
+                this.name=name;
+                this.age=age;
+                this.major=major;
+                this.show=function(){
+                    document.write("student: "+this.name+" , "+this.age+" , "+this.major+"<br>");
+                }
+
+                //setter, getter method
+                this.setName=function(name){
+                    this.name=name;
+                }
+                this.getName=function(){
+                    return this.name;
+                }
+            }
+
+            var stu4=new Stu("ddd",18,"mobile");
+            stu4.show();
+            var sti=new Stu(); //값을 전달 안하면? undefined로 처리
+            sti.show();
+            stu4.setName("me");
+            document.write("name: "+stu4.getName()+"<br><hr>");
+
+            //추가적인 내용
+            //1)in 키워드: 연산자
+            document.write('name' in stu); //name 속성이 있으면 true
+            document.write("<br>");
+            document.write('addr' in stu); //addr 속성이 없기에 false
+            document.write("<br>");
+            //2)객체안에 객체가 멤버로 존재할 수 있음
+            var flight={
+                airline: "Korean air",
+                number: 888,
+                arrival: { //객체안에 객체
+                    nation:"Japan",
+                    city:"tokyo"
+                }
+            }
+
+            document.write(flight.arrival.city+"<bR>");
+            document.write(flight['airline']+"<br>"); //연관배열로 멤버접근 가능
+            document.write("<br>");
+
+            //3) Object.creat() 메소드..객체 clone기능
+            //리터럴 객체의 단점. 같은 구성의 색체를 또 생성할때 코드를 모두 다시 작성
+            var p1={
+                name:"aaa",
+                age:20,
+                show:function(){
+                    document.write("show: "+this.name+" , "+this.age+"<br>")
+                }
+            }
+            var p2=Object.create(p1); //p1객체를 복제한 새로운 객체 리턴
+            p1.show();
+            p2.name="bbb";
+            p2.age=44;
+            p2.show();
+
+            
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
