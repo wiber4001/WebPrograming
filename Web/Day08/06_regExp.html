@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JS 유효성 검사</title>
+    </head>
+    <body>
+        <input type="text" id="in1">
+        <button onclick="check()">유효성 검증</button>
+        <h3 id="aa"></h3>
+        <script>
+            function check(){
+                //검증용 정규표현식 만들기
+                var regExp= /^[a-zA-Z]+$/; //영문자 1개 이상
+                //입력된 글씨값
+                var e= document.getElementById('in1');
+                var s=e.value;
+                
+                //검증 2가지 방법
+                //1. String .match() 메소드
+                // if( s.match(regExp) ) alert("OK");
+                // else alert("요구하는 형식이 아닙니다.");
+
+                //2. RegExp 객체의 test() 메소드
+                // if( regExp.test(s) ) alert("OK");
+                // else alert("요구하는 형식이 아닙니다.");
+
+                //정규표현식 연습
+                regExp=/a/; //a가 포함된 모든 입력 OK
+                regExp=/A/; //A가 포함된 모든 입력 OK 대문자임
+                regExp=/ab/; //ab가 포함된
+                regExp=/^a/; //시작이 무조건 a여야만 함
+                regExp=/^[a-z]/; //시작이 무조건 영어소문자
+                regExp=/a$/; //끝이 무조건 a
+                regExp=/ab$/; //끝이 무조건 ab
+                regExp=/^a$/; //a 단 한글자만
+                regExp=/^ab$/; //무조건 ab만
+                regExp=/^[a-zA-Z]$/; //영문자 한글자만
+                regExp=/^[a-zA-Z0-9]$/; //영문자 또는 숫자 하나
+                regExp=/^[a-z]{2}$/; //영소문자 2글자만
+                regExp=/^[a-z]{2,4}$/; //영어 소문자 2~4글자만
+                regExp=/^[a-z]{4,}$/; //영어 소문자 4글자이상
+                regExp=/^\w{4,}$/; //문자나 숫자 4글자 이상
+                regExp=/^[a-z]*$/; //영어소문자 0개이상[안써도OK]
+                regExp=/^[a-z]+$/;//영어소문자 1개이상[안쓰면안됨]
+                regExp=/^[a-z]?$/; //영어소문자 0개 또는 1개[안써도OK]
+                regExp=/^[5-9]$/; //숫자 5-9중에 1개만
+                regExp=/^\d$/; //숫자 1개
+                regExp=/^\d\d\d$/; //숫자 3개
+                regExp=/^\d\d\da\d\d\da\d\d\da$/; //숫자 3개 a숫자 3개 a숫자 3개 a :패턴지정
+
+                //생년월일 형식 검증 ####-##-##
+                regExp=/^\d\d\d\d-\d\d-\d\d$/;
+
+                //이메일 형식 ####@###.##
+                regExp=/^[a-zA-Z0-9!$%^&]+@[a-zA-Z]+.[a-z]*$/;
+
+                //URL 주소가 맞는지 확인
+                regExp=/^http:/;
+
+                //혹시 / 한개를 검증
+                regExp= /^\/$/; //escape문자 \가 필요
+
+                var h=document.getElementById('aa');
+                if(regExp.test(s)) h.innerHTML="OK";
+                else h.innerHTML="요구하는 형식이 아닙니다."
+            }
+        </script>
+    </body>
+</html>

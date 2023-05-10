@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>JS Event처리</title>
+        <script>
+            //body요소 안에 있는 h2요소 제어해보기->안됨why? 만들어지기 이전에 실행되므로
+            document.getElementById('aa').innerHTML="Hello";
+
+            //JS는 이벤트를 처리하는 방법을 3가지제공
+            //1.html에서 요소에 속성으로 이벤트함수를 지정
+            function loaded(){
+                document.getElementById('aa').innerHTML="Hello";
+
+                //2.요소의 속성을 변경했던것ㅊ어럼 이벤트 속성을 JS로 지정
+                document.getElementById("aa").onclick=function(){
+                    document.getElementById('aa').innerHTML="GOOD!!!!";
+                }
+                //3.요소에 이벤트리스너 추가 메소드 이용
+                document.getElementById('aa').addEventListener('dblclick',function(){//더블클릭하면
+                    alert('더블클릭');
+                });
+            }
+            
+
+        </script>
+    </head>
+    <body onload="loaded()">
+        <!-- 1.이벤트 처리 연습용 [onload 이벤트] -->
+        <h2 id="aa" onclick="aaa()"></h2>
+        <!-- 2.다른 이벤트들의 종류 -->
+        <!-- 2.1 input요소의 이벤트 -->
+        <input type="text" id="in1" onfocus="aaa()">
+        <input type="text" id="in2" onblur="bbb()" onchange="ccc()">
+
+        <script>
+            function aaa(){
+                document.getElementById('in1').value="aa";
+            }
+            function bbb(){
+                alert("blur처리됨")
+            }
+            function ccc(){
+                alert("change됨")
+            }
+        </script>
+        <hr>
+        <!-- 사용자가 값을 입력하고 필드를 벗어나면 자동으로 대문자로 변경해주기  -->
+        <input type="text" id="in3" onchange="changeUP()">
+        <script>
+            function changeUP(){
+                var e=document.getElementById("in3");
+                var s=e.value;
+                e.value=s.toUpperCase();
+            }
+        </script>
+        <!-- 2.2 mouse이벤트 -->
+        <hr>
+        <div
+            style="width:200px; height:100px; background-color: yellowgreen;"
+            onmouseover="over(this)"
+            onmouseout="out(this)"
+            onmousemove="move(this)"></div>
+
+        <script>
+            function over(e){
+                e.style.backgroundColor="lightgreen";
+                e.style.border="2px solid tomato";
+            }
+            function out(e){
+                e.style.backgroundColor="violet";
+                e.style.border="";
+            }
+            var n=0;
+            function move(e){
+                n++;
+                e.innerHTML="move: " +n;
+            }
+        </script>
+        <hr>
+        <!-- 마우스좌표 -->
+        <div style="width:200; height:100px; background-color: thistle;" id="kk"></div>
+        <script>
+            
+            document.getElementById("kk").addEventListener('mousemove',function(event){//요소가 아니라 이벤트 정보를 객체로 받을 수 있음
+                var s="";
+                s+="브라우저 문서안에서의 좌표:"+event.clientX+" , "+event.clientY+"<br>";
+                s+="모니터 기준 좌표:"+event.screenX+" , "+event.screenY+"<br>";
+                s+="요소 영역 기준 좌표:"+event.offsetX+" , "+event.offsetY+"<br>";
+                document.getElementById('kk').innerHTML=s;
+            });
+
+
+        </script>
+        <!-- 2.3 keyboard 이벤트는 별도예제로 -->
+    </body>
+</html>

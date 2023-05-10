@@ -102,8 +102,69 @@
 
         <!-- 2.document -->
         <!-- 원래는 window.document로 써야하지만 window는 생략가능 -->
-        <!-- 3. -->
-        <!-- 4. -->
-        <!-- 5. -->
+        <!-- 3.screen:모니터 해상도 관리 객체 -->
+        <script>
+            document.write(window.screen.width+" , "+window.screen.height+"<Br>");
+            document.write(screen.availWidth+" , "+screen.availHeight+"<Br>");
+            //브라우저 창 사이즈를 알고싶다면 window객체에게...
+            document.write(window.innerWidth+ " , "+window.innerHeight+"<br>");
+            //inner는 웹브라우저의 document영역
+            document.write(window.outerWidth+ " , "+window.outerHeight+"<br>");
+            //outer는 웹브라우저 전체 영역
+        </script>
+
+        <!-- 4.location: URL에 대한 정보 -->
+        <hr>
+        <script>
+            document.write(location.href+"<br>");
+            document.write(location.protocol+"<br>");
+            document.write(location.pathname+"<bR>");
+
+        </script>
+        <button onclick="xxx()">location객체를 이용한 새로운 문서열기</button>
+        <button onclick="yyy()">location객체를 이용한 현재문서 다시열기(새로고침)/button>
+        <button onclick="zzz()">location객체를 이용한 현재문서를 대체하여 다시열기(화면전환)</button>
+        <script>
+            function xxx(){
+                // location.assign("https://www.naver.com"); //자주쓰지 않음
+                location.href='https://www.naver.com';//이것이 좀 더 선호됨
+            }
+            function zzz(){
+                location.replace('https://www.naver.com');//finish()하고 연거랑 같음(history가 안남음)
+            }
+            function yyy(){
+                location.reload();
+            }
+        </script>
+            <hr>
+
+        <!-- 5.history: 방문한 URL의 정보 -->
+        <script>
+            document.write("방문한 페이지 수: "+history.length+"<br>")
+        </script>
+        <button onclick="hhh()">뒤로</button>
+        <button onclick="hhh2()">앞으로</button>
+        <button onclick="hhh3()">뒤로2칸</button>
+        <script>
+            function hhh(){
+                history.back();
+            }
+            function hhh2(){
+                history.forward();
+            }
+            function hhh3(){
+                history.go(-2);
+            }
+        </script>
+
+        <!-- 6.navigator: 브라우저 정보[추후 내 위치 검색할때 사용] -->
+        <hr>
+        <script>
+            document.write(navigator.appCodeName+"<br>");
+            document.write(navigator.appName+"<br>");
+            document.write(navigator.appVersion+"<br>");
+            document.write(navigator.platform+"<br>");
+            document.write(navigator.userAgent+"<br>");
+        </script>
     </body>
 </html>
