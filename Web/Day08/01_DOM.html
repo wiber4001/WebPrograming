@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS DOM</title>
+
+    </head>
+    <body>
+        <!-- DOM tree: html 웹 문서안에 있는 것들을 객체로 바라보고 모델링한 것 -->
+        <!-- 트리구조를 구성하는 것들을 노드node 라고 부름 -->
+        <!-- node종류: element node(1), attribute node(2), text node (3) -->
+        <!-- node 타입을 알아보자 -->
+        <p id="p1"><a href="" target="">Google</a></p>
+        <script>
+
+            //id값이 p1인 요소 찾기
+            var e=document.getElementById('p1');
+            // alert(e.nodeType+" : "+e.nodeName);// nodeType 1 : element
+
+            //p요소의 속성
+            var attrs=e.attributes;
+            // alert(attrs[0].nodeType+" : "+attrs[0].nodeName); // nodeType 2: attributes
+            // alert('속성값:'+attrs[0].value);
+
+            //p요소의 첫번째 자식노드
+            var e=e.firstChild;
+            // alert(e.nodeType+" : "+e.nodeName);
+
+            //a요소의 속성값들
+            var attrs=e.attributes;
+            // alert(attrs[0].nodeType+" : "+attrs[0].nodeName);
+            // alert(attrs[1].nodeType+" : "+attrs[1].nodeName);
+
+            //a요소의 첫번째 자식노드 : 텍스트 노드
+            var t=e.firstChild;
+            alert(t.nodeType+" : "+t.nodeName); //nodeType 3: text
+            alert('텍스트값: '+t.data);
+
+        </script>
+    </body>
+</html>
