@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>day08연습문제</title>
+        <script>
+            function pressBtn(){
+                alert("반갑습니다.");
+            }
+
+            function changeText(){
+                document.getElementById("txtBefore").innerHTML="이 텍스트는 자바 스크립트에서 변경한 것입니다.";
+            }
+        </script>
+    </head>
+    <body>
+        <!-- 예제5 -->
+        <!-- <p>자바 스크립트는 이벤트에 반응할 수 있습니다.</p>
+        <button onclick="pressBtn()" id="btn1">버튼을 누르세요!</button> -->
+
+        <!-- 예제6 -->
+        <!-- <p id="txtBefore">버튼을 누르면 이 요소의 내용이 변경됩니다.</p>
+        <button onclick="changeText()">버튼을 누르세요!</button> -->
+
+        <!-- 예제7 -->
+        <!-- <div>
+            <p>숫자를 입력하시오</p>
+            <input type="text" id="in1">
+            <button onclick="check()">입력완료</button>
+        </div>
+        <script>
+            function check(){
+                var e = document.getElementById('in1');
+                var s=e.value;
+                if(isNaN(s)) alert("숫자가 아닙니다.");
+                else alert("숫자입니다.");
+            }
+        </script> -->
+        
+        <!-- 예제8 -->
+        <!-- <div>
+            <img src="./images/a_monkey.png" alt="a_monkey" id="img" onclick="changeImg()">
+            <p>그림을 눌러보세요</p>
+        </div>
+        <script>
+            function changeImg(){
+                document.getElementById('img').src="./images/a_frog.png";
+            }
+        </script> -->
+        <!-- 예제 9 -->
+        <div>
+            <h1>회원 신청서</h1>
+            <form action="">
+                <table>
+                    <tr>
+                        <td>이름*</td>
+                        <td>
+                            <input type="text" id="name" placeholder="HongGilDong" onchange="name()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>성별*</td>
+                        <td>
+                            <label><input type="radio" value="male" name="rg" checked>남성</label>
+                            <label><input type="radio" value="female" name="rg">여성</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>휴대폰번호(###-####-####)*</td>
+                        <td>
+                            <input type="search" id="phone" placeholder="aaa-bbbb" onblur="phone()">
+                        </td>
+                        <td>
+                            <input type="text" id="alert" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>이메일*</td>
+                        <td>
+                            <input type="text" id="email" onchange="email()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>패스워드(6-8글자)*</td>
+                        <td>
+                            <input type="text" id="pass1" onchange="pass1()" >
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>패스워드확인*</td>
+                        <td>
+                            <input type="text" id="pass2" onchange="pass2()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="제출">
+                            <input type="reset" value="지우기">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <script>
+                var regName=/^[a-zA-Z]/;
+                var regPhone=/^\d\d\d-\d\d\d\d-\d\d\d\d$/;
+                var regEmail=/^[a-zA-Z0-9!$%^&]+@[a-zA-Z]+.[a-z]*$/;
+                var regPass1=/^[a-zA-Z0-9!@#$%^&*()_+\/]{6,8}/;
+                function name(){
+                    var e= document.getElementById('name');
+                    var s=e.value;
+                    if(regName.test(s)) {
+                        
+                    } else alert("맞지않는 형식입니다.");
+                }
+                function phone(){
+                    var e= document.getElementById('phone');
+                    var s=e.value;
+                    if(regPhone.test(s)) {
+                        
+                    } else document.getElementById('alert').value="잘못된 번호입니다."
+                }
+                function email(){
+                    var e= document.getElementById('email');
+                    var s=e.value;
+                    if(!s.match(regEmail)) {
+                        alert("맞지않는 형식입니다.");
+                    }
+                }
+                function pass1(){
+                    var e= document.getElementById('pass1');
+                    var s=e.value;
+                    if(!s.match(regPass1)) {
+                        alert("맞지않는 형식입니다.");
+                    }else pass1=s;
+                }
+                function pass2(){
+                    var e=document.getElementById('pass2');
+                    var s=e.value;
+                    if(!s.match(pass1)){
+                        alert("패스워드가 일치하지 않습니다.");
+                    }
+                }
+
+        </script>
+    </body>
+</html>
