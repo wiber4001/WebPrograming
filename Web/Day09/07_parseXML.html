@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>JS XML parse</title>
+    </head>
+    <body>
+        <script>
+            //xml데이터[문자열인데 특정 형식이 있는 것 뿐임]
+            var xml="<movie><title>아바타</title><genre>SF, Adventure</genre></movie>";
+            //xml을 html의 DOM tree document객체처럼 변환해주는 기능을 가진 파서 이용
+            var parser=new DOMParser();
+            var doc=parser.parseFromString(xml,'application/xml');
+            var title=doc.getElementsByTagName('title')[0].textContent;
+            alert(title);
+            //doc은 document이므로 document.getElementsByTagName('h2')[0].textContent; 처럼씀
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>JS HTTP통신 라이브러리</title>
+    </head>
+    <body>
+        <button onclick="aaa()">get method test</button>
+        <button onclick="bbb()">post method test</button>
+        <hr>
+        <div id="target"></div>
+        <script>
+            function aaa(){
+                var url="./getTest.php?name=tree&msg=물을 주세요";
+                
+                //fetch 라이브러리-promiss기법: ~해 그리고나서(then) ~해
+                fetch(url).then(function(response){ // response:응답객체
+                    //응답객체가 가지고 온 응답결과를 글씨로 변환해야함
+                    return response.text(); //비동기 작업임
+                }).then(function(responseText){
+                    document.querySelector("#target").innerHTML=responseText;
+                }); //send, open 다 끝남
+
+
+            }
+            function bbb(){
+                //POST방식 연습
+                var url="./postTest.php";
+                var data="title=Hello&msg=바르게 인사합시다.";
+                fetch(url,{
+                    method:'POST',
+                    headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'},
+                    body: data
+                }).then(function(response){
+                    return response.text();
+                }).then(function(text){
+                    document.querySelector('#target').innerHTML=text;
+                });
+            }
+        </script>
+    </body>
+</html>
