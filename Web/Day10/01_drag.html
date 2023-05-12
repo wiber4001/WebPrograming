@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Drag and Drop</title>
+        <style>
+            #cart{
+                width: 400px; height: 150px; padding: 10px; border: 2px solid tomato; margin-bottom: 10px;
+            }
+        </style>
+        <script>
+            var id;
+            var isOverCart=false;
+
+            function startDrag(){
+                //드래그가 되는 요소의 식별 id값을 변수에 저장
+                id=event.target.id;        
+            }
+            function overDrag(){
+                //요소위에 다른요소가 놓여질 수 없도록 되어있는 디폴트값을 해제
+                event.preventDefault();
+                isOverCart=true;
+            }
+            function endDrag(){
+                if(isOverCart){
+                    //처음 드래그 시작될때 저장했던 id를 이용하여 요소 찾기
+                    var e=document.getElementById(id);
+                    document.getElementById('cart').appendChild(e);
+                    isOverCart=false;
+                }
+            }
+            function leaveDrag(){
+                isOverCart=false;
+            }
+
+        </script>
+    </head>
+    <body>
+        <div id="cart" ondragover="overDrag()" ondragleave="leaveDrag()">
+
+        </div>
+        <img src="./img/bazzi.png" alt="bazzi" width="150" height="150" id="img1" ondragstart="startDrag()" ondragend="endDrag()">
+        <img src="./img/dao.png" alt="da" width="150" height="150" id="img2" ondragstart="startDrag()" ondragend="endDrag()">
+
+    </body>
+</html>
