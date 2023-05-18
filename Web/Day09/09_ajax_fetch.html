@@ -11,6 +11,13 @@
         <div id="target"></div>
         <script>
             function aaa(){
+
+                fetch("./aaa.txt").then(function(response){
+                    return response.text()
+                }).then(function(text){
+                    alert(text);
+                })
+
                 var url="./getTest.php?name=tree&msg=물을 주세요";
                 
                 //fetch 라이브러리-promiss기법: ~해 그리고나서(then) ~해
@@ -20,8 +27,6 @@
                 }).then(function(responseText){
                     document.querySelector("#target").innerHTML=responseText;
                 }); //send, open 다 끝남
-
-
             }
             function bbb(){
                 //POST방식 연습

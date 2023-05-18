@@ -17,12 +17,11 @@
                     if(xhr.readyState==4 && xhr.status==200) {
                         var e=document.getElementById('target');
                         e.innerHTML=xhr.responseText;
-
                     }
                 }
 
                 // xhr.open('GET','./aaa.txt', true);//세번째 파라미터: 비동기 동작 여부(true가 비동기식)
-                // xhr.open('GET','./04_noAjax.html', true); // innerHTML을 쓰기때문에 페이지 안에 페이지처럼 보임
+                // xhr.open('GET','./04_noAjax.', true); // innerHTML을 쓰기때문에 페이지 안에 페이지처럼 보임
                 // xhr.open('GET','./getTest.php?name=SAM&msg=Good',true);
                 // xhr.open('GET','http://www.w3schools.com/XML/cd_catalog.xml',true);
                 //CORS(cross origin resource share) policy 위반 에러: origin이 다른 ajax끼리는 서로 공유할 수 없음
