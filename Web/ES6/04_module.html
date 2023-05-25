@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>JS es6 module</title>
+        <!-- JS는 다른JS에서 만든 변수나 함수 사용 불가 -->
+        <!-- 만약 웹을 제작중이라면 HTML에서JS파일을 연결하여 사용 -->
+        <!-- 서로 다른 JS의 함수나 변수를 사용할 수 있음 -->
+        <!-- <script src="./module.js"></script> -->
+
+        <!-- 하지만 React Native나 JS를 서버용 언어로 사용하는 node.js 에서는 HTML없이 프로그램이 동작함-->
+        <!-- node.js는 서버측 javascript 인터프리터같이 되는것 -->
+        <!-- React Native는 html, css가 아닌 xml을 사용함 -->
+        <!-- html 없이 JS파일끼리의 통신을 위한 문법(node.js)이 필요 -->
+        <!-- HTML에서는 module import를 하려면...type설정 module로 필요 -->
+        <!-- 모듈기능은 웹서버에서만 동작함 -->
+        <!--  -->
+        <script type="module">
+            //다른 JS의 함수, 변수, 클래스를 가져오는 문법
+            // import show from './module.js'
+            // import {addTextToBody} from './module.js' //default가 아닌것은 {}에 넣어야함
+            // import {num, age} from './module.js' //변수나 상수도 import가능
+            //같은 문서 안에 있는 여러개 한번에 import가능
+            import show, {addTextToBody, num, age} from './module.js'
+
+            //import 하는 것의 이름을 이곳에서 다르게 사용할 수 있음
+            // import {num as n, age} from './module.js'
+
+            show();
+            addTextToBody('Nice to meet you');
+            alert(num+"\n"+age)
+
+            
+        </script>
+
+    </head>
+    <body>
+        
+    </body>
+</html>

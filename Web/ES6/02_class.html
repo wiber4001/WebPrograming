@@ -167,11 +167,72 @@
         </script>
         <script>
             //static 멤버
+            class First{
+                static show(){ //생성하기 전에도 쓸수있음
+                    document.write("static method show...<br>")
+                }
+                static name="kim"
+            }
+            //객체생성 없이 사용 가능
+            First.show()
+            //static 멤버변수 사용
+            document.write("static name:"+First.name+"<br>")
 
+            //static 도 클래스 설계 밖에서 추가할 수 있음
+            First.num=50
+            document.write("static num:"+First.num+"<br>")
         </script>
         <hr>
         <script>
             //구조분해할당 문법
+            class Nice{
+                name="hong"
+                age=20
+                address="SEOUL"
+            }
+            let nice=new Nice()
+            document.write("name: "+nice.name+"<br>")
+            document.write("age: "+nice.age+"<br>")
+            document.write("address: "+nice.address+"<br>")
+            document.write("<hr>")
+
+            //객체의 특정 멤버를 뽑아서 일반변수에 대입하여 사용하는 문법
+            // let name=nice.name
+            // let age=nice.age //이것도 불편
+            let {name,age}=nice //nice안에 name,age만 빼옴
+            
+            document.write("name: "+name+"<br>")
+            document.write("age: "+age+"<br>")
+
+            //구조분해할당이 많이 활용되는 형태-함수의 파라미터로 객체를 전달
+            //예) nice객체의 주소(address)를 출력해주는 기능 함수
+            function showNiceAddress({address}){
+                document.write("address: "+address+"<br>")
+            }
+
+            showNiceAddress(nice)//객체를 파라미터로 전달
+            document.write("<hr>")
+
+            //구조분해할당 주의점. 멤버의 이름이 다르면 할당 불가능
+            let {addss}=nice
+            document.write("address: "+addss+"<br>")
+
+            //특이한 구조분해 할당
+            //특정멤버를 제외한 나머지들을 하나의 객체로...할당
+            class Hello{
+                aaaa=10
+                bbbb=20
+                cccc=30
+                dddd=40
+            }
+
+            let hello=new Hello()
+            const {aaaa, ...rest}=hello //...rest:나머지 멤버들을 가지는 객체
+            document.write("aaaa:"+aaaa+"<br>")
+            document.write("bbbb:"+rest.bbbb+"<Br>")
+            document.write("cccc:"+rest.cccc+"<Br>")
+            document.write("dddd:"+rest.dddd+"<Br>")
+
         </script>
     </body>
 </html>

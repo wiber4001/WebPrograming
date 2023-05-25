@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>JS es6 arrow function</title>
+
+    </head>
+    <body>
+        <script>
+            //3. 화살표함수(Arrow Function)- JAVA/KOTLIN 의 람다표기
+            //1) 일반적인 선언적 함수
+            function show(){
+                document.write("show!!<br>")
+            }
+            show();
+            //2) 함수를 변수에 저장하여 사용: 익명함수
+            let output=function(){
+                document.write("output!!!<br>")
+            }
+            //익명함수 객체를 가지고 있는 output변수를 함수명처럼 사용하여 함수 호출
+            output()
+            //3) 위 익명함수를 화살표함수로 변경하여 사용해보기
+            let display = ()=>{
+                document.write("display!!<bR>")
+            }
+            display()
+            //당연히 화살표 함수도 파라미터를 받을 수 있음
+            let display2=(name)=>{
+                document.write("display2: "+name+"<br>")
+            }
+            display2("hogghog")
+            //4)화살표함수의 간단표기법
+            //4.1)파라미터가 1개뿐이라면 ()를 생략할 수 있음.
+            let display3= name=>{
+                document.write("display3: "+name+"<br>")
+            }
+            display3("robin")
+            //4.2)함수의 실행문이 1줄이라면...{} 생략이 가능함
+            let display4= name=> document.write("display4: "+name+"<br>")
+            display4("hogngngn4")
+            //파라미터 0개일때는 () 는 생략불가
+            let display5= ()=> document.write("display5: <br>")
+            display5()
+
+            //파라미터 2개 이상일때도 ()는 생략불가
+            let display6= (name,age)=>document.write(`display6: ${name} , ${age} <br>`)
+            display6("min6",30)
+        </script>
+        <hr>
+        <!-- 일반적으로 화살표함수는 이벤트처리의 콜백함수로 많이 사용됨 -->
+        <button id="b1">button</button>
+        <h4 id="hh">Hello<br></h4>
+        <script>
+            //버튼 클릭하여 h4요소의 글씨를 바꿔보기
+            //버튼에 클릭 이벤트 달기
+            //1)예전방식
+            let b1=document.getElementById("b1")
+            b1.onclick=function(){
+                document.getElementById('hh').innerHTML="clicked button"
+            }
+            //2)화살표 함수 이용
+            b1.onclick=()=>document.getElementById('hh').innerHTML="clicked button (축약)"
+            //2.반복문 처리에도 자주 활용됨
+            let aaa=new Array(10,20,30)
+
+            // 반복문을 이용하여 배열의 요소들을 h4요소에 출력
+            for(let i=0; i<aaa.length;i++){
+                document.querySelector('#hh').innerHTML += aaa[i]+"<br>"
+            }
+            document.write("<hr>")
+            //in 키워드를 이용하여 배열의 인덱스번호를 실수없이 사용
+            for(index in aaa){
+                document.querySelector('#hh').innerHTML +=aaa[index]+"<br>"
+            }
+            //in도 짜증...aaa[]이 형태의 코드 지저분함.
+            //그래서 배열의 요소접근 기능메소드 활용  forEach(), map()
+            //배열 요소에 접근할때 마다 파라미터의 함수가 호출됨
+            aaa.forEach(function(value, index, array){ //value, index, array (파라미터가 3개가 옴)
+                document.write(index+" : "+value+"<br>")
+            })
+            document.write("<hr>")
+            //만약 요소값 value만 사용하고싶다면
+            aaa.forEach(function(value){
+                document.write(value+"<br>")
+            })
+            document.write("<hr>")
+
+            //이때 파라미터로 지정한 콜백함수를 화살표 함수로
+            aaa.forEach((value)=>{
+                document.write(value+"<br>")
+            })
+            document.write("<hr>")
+            //화살표함수를 더 간결하게..
+            aaa.forEach(value=>document.write+"<br>")
+            document.write("<hr>")
+            //또 다른 배열요소 접근 기능 메소드 이용: map()
+            //배열의 요소값들을 모두 1증가 시키고 싶을때...>매년 나이증가 같은
+            //배열을 가져와서 새로운 것들을 만들때...>아답터 역할
+            //콜백함수에서 리턴한 값들을 새로운 배열요소로 추가함. 그 배열을 리턴함
+            //리턴된 bbb는 새로운 배열 - aaa배열과 개수가 같음
+            let bbb=aaa.map(function(value){
+                return value+1
+            })
+            document.write("result: "+bbb+"<br>") //배열요소값을 자동 출력해줌
+            //위 작업을 화살표함수로 처리>간결
+            let ccc=aaa.map(value=>{return value+1})
+            document.write("result: "+ccc+"<br>")
+            
+            //실행문이 1줄이면 {}도 생략가능?
+            // let ddd=aaa.map(value=>return value+1)//error:실행문1줄이 return이면 생략해줘야함
+            let ddd=aaa.map(value=>value+1)
+            document.write("result: "+ddd+"<br>")
+
+        </script>
+    </body>
+
+</html>
